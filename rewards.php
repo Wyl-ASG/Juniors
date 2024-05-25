@@ -4,9 +4,6 @@ require_once "common.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-    session_start();
-    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Rewards</title>
@@ -158,15 +155,17 @@ require_once "common.php";
         <a href="#">Contact</a>
         
         <?php
-        if(isset($_SESSION["name"]))
+        session_start();
+        if(isset($_SESSION["username"]))
         {
-            $name = $_SESSION["name"];
+            $name = $_SESSION["username"];
             echo"<a href=profile.php>Profile ({$name})</a>";
         }
         else{
             echo"<a href=login.php>Login</a>";
         }
         ?>
+        <a href="index.php?test=1">Logout</a>
     </nav>
     <div class="container">
         <h1>Your Rewards</h1>

@@ -161,15 +161,18 @@
         <a href="#">Contact</a>
         
         <?php
-        if(isset($_POST["username"]))
+        session_start();
+        if(isset($_SESSION["username"]))
         {
-            $name = $_POST["username"];
+            $name = $_SESSION["username"];
             echo"<a href=login.php>Profile ({$name})</a>";
         }
         else{
             echo"<a href=login.php>Login</a>";
         }
+        
         ?>
+        <a href="index.php?test=1">Logout</a>
     </nav>
     <div class="container">
         <h1>Volunteer Opportunities</h1>
