@@ -33,6 +33,6 @@ class Organizer {
         $this->org_pass = $org_pass;
     }
 
-    public function get
+
 
 }
