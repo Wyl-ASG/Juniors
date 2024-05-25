@@ -96,7 +96,7 @@
 <div class="container">
     <div class="login-section">
         <h1>Volunteer Login</h1>
-        <form action="tester.php" method="post">
+        <form action="index.php" method="post">
             <label for="volunteer-username">Username:</label>
             <input type="text" id="volunteer-username" name="username" required>
 
