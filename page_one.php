@@ -40,6 +40,7 @@
             max-width: 1300px;
             margin: 0 auto;
             padding: 20px;
+            
         }
         .content {
             background-color: #fff;
@@ -91,15 +92,60 @@
   .contact-info p span {
     font-weight: bold;
   }
-  .table-event
-  {
-    min-width: 700px;
-    text-align: center
-  }
-  .large-text {
-    font-size: 20px;
-    
-}
+        /* Style for the table */
+        .table-event {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 2px solid #007bff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for the table header */
+        .table-event th {
+            background-color: #a6ccff;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Style for the table cells */
+        .table-event td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Alternate row colors */
+        .table-event tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        .table-event tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        /* Header row */
+        .table-event .event-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+        }
+
+        /* Large text for headers */
+        .table-event .large-text {
+            font-size: 1.1em;
+            
+        }
+
+        /* Style for input checkbox */
+        .table-event input[type="checkbox"] {
+            transform: scale(1.5);
+            margin: 0;
+        }
     </style>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -115,10 +161,10 @@
         <a href="#">Contact</a>
         
         <?php
-        if(isset($_SESSION["name"]))
+        if(isset($_POST["username"]))
         {
-            $name = $_SESSION["name"];
-            echo$name;
+            $name = $_POST["username"];
+            echo"<a href=login.php>Profile ({$name})</a>";
         }
         else{
             echo"<a href=login.php>Login</a>";
@@ -138,48 +184,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stylized Table</title>
     <style>
-        .table-event {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .table-event th, .table-event td {
-            border: 4px solid black; /* Thick black borders */
-            padding: 8px;
-            text-align: center;
-        }
-        .table-event th {
-            background-color: #555;
-            color: #fff;
-        }
-        .table-event tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .event-header {
-            background-color: #555; /* Dark grey */
-            color: white;
-            padding: 15px;
-            font-size: 24px;
-        }
+
         .large-text th {
             font-size: 20px;
         }
     </style>
 </head>
 <body>
-    <table border="1" class="table-event">
+<table border="1" class="table-event">
         <tr>
             <td colspan="7" class="event-header"><h2>Event Details</h2></td>
         </tr>
-        <tr class="large-text">
-            <th>Date</th>
-            <th>Time</th>
-            <th>Location</th>
-            <th>Coordinator</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Sign Up</th>
+        <tr class="large-text" >
+            <th style="color:black;">Date</th>
+            <th style="color:black;">Time</th>
+            <th style="color:black;">Location</th>
+            <th style="color:black;">Coordinator</th>
+            <th style="color:black;">Phone</th>
+            <th style="color:black;">Email</th>
+            <th style="color:black;">Sign Up</th>
         </tr>
         <tr>
             <td>June 15, 2024</td>
@@ -189,6 +212,15 @@
             <td>555-123-4567</td>
             <td>john.doe@example.com</td>
             <td><input type="checkbox" name="opp[]" value="1"></td>
+        </tr>
+        <tr>
+            <td>July 20, 2024</td>
+            <td>10:00 AM - 1:00 PM</td>
+            <td>Riverside Park, South Entrance</td>
+            <td>Jane Smith</td>
+            <td>555-987-6543</td>
+            <td>jane.smith@example.com</td>
+            <td><input type="checkbox" name="opp[]" value="2"></td>
         </tr>
     </table>
 
