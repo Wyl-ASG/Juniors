@@ -146,7 +146,7 @@
         <h1></h1>
     </header>
     <nav>
-        <a href="tester.php">Home</a>
+        <a href="index.php">Home</a>
         <a href="#">About</a>
         <a href="rewards.php">Rewards</a>
         <a href="#">Contact</a>
