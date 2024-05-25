@@ -4,6 +4,9 @@ require_once "common.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+    session_start();
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Rewards</title>
@@ -158,7 +161,7 @@ require_once "common.php";
         if(isset($_SESSION["name"]))
         {
             $name = $_SESSION["name"];
-            echo$name;
+            echo"<a href=profile.php>Profile ({$name})</a>";
         }
         else{
             echo"<a href=login.php>Login</a>";
@@ -173,40 +176,40 @@ require_once "common.php";
         <button class="cart-button" onclick="viewCart()">View Cart</button>
         <div class="items">
             <div class="item">
-                <img src="item1.jpg" alt="Item 1">
-                <h2>Item 1</h2>
+                <img src="simplygo.png" alt="Item 1" height="60" width="220">
+                <h2>$2 SimplyGo Credit</h2>
                 <p>Price: 300 Points</p>
-                <button onclick="addToCart('Item 1', 300)">Redeem</button>
+                <button onclick="addToCart('$2 SimplyGo Credit', 300)">Redeem</button>
             </div>
             <div class="item">
-                <img src="item2.jpg" alt="Item 2">
-                <h2>Item 2</h2>
+                <img src="guardian.png" alt="Item 2" height="60" width="220">
+                <h2>$3 Guardian Voucher</h2>
                 <p>Price: 450 Points</p>
-                <button onclick="addToCart('Item 2', 450)">Redeem</button>
+                <button onclick="addToCart('$3 Guardian Voucher', 450)">Redeem</button>
             </div>
             <div class="item">
-                <img src="item3.jpg" alt="Item 3">
-                <h2>Item 3</h2>
+                <img src="simplygo.png" alt="Item 3" height="60" width="220">
+                <h2>$5 SimplyGo Credit</h2>
                 <p>Price: 500 Points</p>
-                <button onclick="addToCart('Item 3', 500)">Redeem</button>
+                <button onclick="addToCart('$5 SimplyGo Credit', 500)">Redeem</button>
             </div>
             <div class="item">
-                <img src="item4.jpg" alt="Item 4">
-                <h2>Item 4</h2>
+                <img src="fairprice.png" alt="Item 4" height="72" width="220">
+                <h2>$5 Fairprice Voucher</h2>
                 <p>Price: 600 Points</p>
-                <button onclick="addToCart('Item 4', 600)">Redeem</button>
+                <button onclick="addToCart('$5 Fairprice Voucher', 600)">Redeem</button>
             </div>
             <div class="item">
-                <img src="item5.jpg" alt="Item 5">
-                <h2>Item 5</h2>
+                <img src="guardian.png" alt="Item 5" height="60" width="220">
+                <h2>$7 Guardian Voucher</h2>
                 <p>Price: 750 Points</p>
-                <button onclick="addToCart('Item 5', 750)">Redeem</button>
+                <button onclick="addToCart('$7 Guardian Voucher', 750)">Redeem</button>
             </div>
             <div class="item">
-                <img src="item6.jpg" alt="Item 6">
-                <h2>Item 6</h2>
+                <img src="fairprice.png" alt="Item 6" height="72" width="220">
+                <h2>$10 Fairprice Voucher</h2>
                 <p>Price: 1000 Points</p>
-                <button onclick="addToCart('Item 6', 1000)">Redeem</button>
+                <button onclick="addToCart('$10 Fairprice Voucher', 1000)">Redeem</button>
             </div>
         </div>
         <div class="cart-items hidden">
@@ -218,6 +221,7 @@ require_once "common.php";
                 <!-- Summary of redeemed items will be dynamically inserted here -->
             </div>
         </div>
+        <br>
         <button class="cart-button hidden" onclick="backToRewards()">Back to Rewards</button>
         <button class="cart-button hidden" onclick="confirmCart()">Confirm Cart</button>
         <div class="prompt" id="prompt"></div>
@@ -303,7 +307,7 @@ require_once "common.php";
                 <p>Initial Balance: ${initialBalance} Points</p>
                 <p>Total Spent: ${totalSpent} Points</p>
                 <p>Final Balance: ${balance} Points</p>
-                <p>Items Redeemed:</p>
+                <p><b>Items Redeemed:</b></p>
             `;
             cart.forEach(item => {
                 summaryContainer.innerHTML += `<p>${item.name} - ${item.price} Points</p>`;
