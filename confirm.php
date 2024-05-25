@@ -88,7 +88,7 @@
         <h1></h1>
     </header>
     <nav>
-        <a href="tester.php">Home</a>
+        <a href="index.php">Home</a>
         <a href="#">About</a>
         <a href="rewards.html">Rewards</a>
         <a href="#">Contact</a>
@@ -124,7 +124,7 @@
                 <p><strong>Location:</strong> Central Park, New York</p>
             </div>
             <p>If you have any questions, please contact us at <a href="mailto:info@example.com">info@example.com</a>.</p>
-            <button onclick="window.location.href='tester.php'">Back to Home</button>
+            <button onclick="window.location.href='index.php'">Back to Home</button>
         </div>
     </div>
 
