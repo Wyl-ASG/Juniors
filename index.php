@@ -97,15 +97,19 @@ session_start();
 		section .events ul li .time {
 			position: relative;
 			padding: 20px;
-			background: #262626;
+			background: white;
 			box-sizing: border-box;
 			width: 30%;
 			height: 100%;
 			float: left;
 			text-align: center;
 			transition: .5s;
+			border: 3px solid black
 		}
-
+		section .events ul li .time img {
+			height: 100%;
+  			width: 100%;
+		}
 		/* Styling the hover effect
 			of events section */
 		section .events ul li:hover .time {
@@ -298,6 +302,10 @@ session_start();
         <a href="rewards.php">Rewards</a>
         <a href="#">Contact</a>
         <?php
+		if(isset($_GET['test']))
+		{
+			$_SESSION = [];
+		}
         if(isset($_POST["username"]))
         {
             $name = $_POST["username"];
@@ -313,6 +321,7 @@ session_start();
             echo"<a href=login.php>Login</a>";
         }
         ?>
+		<a href="index.php?test=1">Logout</a>
     </nav>
 	<section>
         
@@ -387,12 +396,12 @@ session_start();
 				<li>
 					<div class="time">
 						<h2>
-                        <img src=Unknown.jpeg width="100%" height="100%">
+                        <img src=Unknown.jpeg>
 						</h2>
 					</div>
 					<div class="details">
                     <div class="event-title">
-							Charity
+							Willing hearts
                     </div>
 						<p>
 							With the idea of imparting programming
@@ -411,7 +420,7 @@ session_start();
 				<li>
 					<div class="time">
 						<h2>
-                        <img src=Unknown.jpeg width="100%" height="100%">
+                        <img src=Unknown.jpeg>
 						</h2>
 					</div>
 					<div class="details">
@@ -435,7 +444,7 @@ session_start();
                 <li>
 					<div class="time">
 						<h2>
-                        <img src=Unknown.jpeg width="100%" height="100%">
+                        <img src=Unknown.jpeg>
 						</h2>
 					</div>
 					<div class="details">

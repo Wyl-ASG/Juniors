@@ -1,3 +1,6 @@
+<?php
+require_once "common.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,18 +95,51 @@
     </style>
 </head>
 <body>
+<?php
+session_start();
+    if(isset($_POST['vol']))
+    {
+        $dao = new UserDAO();
 
+        if($dao->checkUserAndPassword($_POST['username'],$_POST['password']))
+        {   $user = $dao->getUser($_POST['username']);
+
+            $_SESSION["username"] = $user->getUser();
+            header("location:index.php");
+            exit;
+        }
+        else{
+            $error= "failed, please try again";
+        }
+
+    }
+    if(isset($_POST['org']))
+    {
+        $dao = new OrgDAO();
+
+        if($dao->checkUserAndPassword($_POST['username'],$_POST['password']))
+        {
+            $_SESSION["username"] = $user->getUser();
+            header("location:organization_home.php");
+            exit;
+        }
+        else{
+            $error= "failed, please try again";
+        }
+
+    }
+?>
 <div class="container">
     <div class="login-section">
         <h1>Volunteer Login</h1>
-        <form action="index.php" method="post">
+        <form action="login.php" method="post">
             <label for="volunteer-username">Username:</label>
             <input type="text" id="volunteer-username" name="username" required>
 
             <label for="volunteer-password">Password:</label>
             <input type="password" id="volunteer-password" name="password" required>
 
-            <button type="submit">Login</button>
+            <button type="submit" name="vol">Login</button>
         </form>
         <div class="register-link">
             <p>Not a member? <a href="volunteer_register.php">Register</a></p>
@@ -118,7 +154,7 @@
             <label for="org-password">Password:</label>
             <input type="password" id="org-password" name="password" required>
 
-            <button type="submit">Login</button>
+            <button type="submit" name = "org">Login</button>
         </form>
         <div class="register-link">
             <p>Not a member? <a href="organization_register.php">Register</a></p>

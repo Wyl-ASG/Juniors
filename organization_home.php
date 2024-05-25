@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizer Homepage</title>
     <style>
+header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #666;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -26,7 +45,7 @@
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: white;
             margin-bottom: 20px;
         }
         .logo {
@@ -88,12 +107,38 @@
         .event-details {
             color: #666;
         }
+
     </style>
 </head>
 <body>
-
+<header>
+        <h1>Welcome,<?php 
+        session_start();
+        echo $_SESSION["username"]?></h1>
+    </header>
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="#">About</a>
+        <a href="rewards.php">Rewards</a>
+        <a href="#">Contact</a>
+        <?php
+		if(isset($_GET['test']))
+		{
+			$_SESSION = [];
+		}
+        if(isset($_SESSION["username"]))
+        {
+            $name = $_SESSION['username'];
+            echo"<a href=profile.php>Profile ({$name})</a>";
+        }
+        else{
+            echo"<a href=login.php>Login</a>";
+        }
+        ?>
+		<a href="index.php?test=1">Logout</a>
+    </nav>
 <div class="container">
-    <h1>Welcome <?= $_POST['username']?></h1>
+
 
     <div class="logo">
         <img src='PA Logo 2015 (PNG).png' alt="Organization Logo">

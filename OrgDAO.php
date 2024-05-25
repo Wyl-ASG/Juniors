@@ -2,6 +2,47 @@
 require_once "common.php";
 
 class OrgDao{
+    public function getOrg($username)
+    {
+        $connMgr = new ConnectionManager();
+        $conn = $connMgr->connect();
+
+        $sql = "select * from organiser where organiser_username = :org_username";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':org_username',$username,PDO::PARAM_STR);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        while ($row = $stmt->fetch()){
+            $user=new User(
+            $row['organiser_username'],
+            $row['organiser_name'],
+            $row['organiser_hpnum'],
+            $row['organiser_email'],
+            $row['organiser_pocname'],
+            $row['organiser_pocnum'],
+            $row['organiser_password'],
+            $row['organiser_website'],
+            $row['organiser_description'],
+            $row['organiser_photo']
+        );
+        }
+        $stmt = null;
+        $conn = null;
+        return $user;
+    }
+    public function checkUserAndPassword($username,$password)
+    {
+        if($this->getOrg($username)!=null)
+        {
+            $user = $this->getOrg($username);
+        if($user->getPass()== $password)
+        {
+            return true;
+        }
+        }
+        
+        return false;
+    }
     public function registerOrg($org)
     {
         $sql = 'insert into organiser values(

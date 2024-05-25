@@ -114,7 +114,7 @@
             </div>
             <div>
                 <label for="total-hours">Total Hours:</label>
-                <span id="total-hours"><b>50</b></span>
+                <span id="total-hours"><b>300</b></span>
             </div>
         </div>
         </h2>
