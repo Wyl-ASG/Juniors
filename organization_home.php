@@ -118,11 +118,11 @@
     </div>
 
     <div class="update-btn">
-        <a href="update.html">Update Details</a>
+        <a href="update.php">Update Details</a>
     </div>
 
     <div class="create-btn">
-        <a href="create_event.html">Create Event</a>
+        <a href="create_event.php">Create Event</a>
     </div>
 
     <h2>Active Events</h2>

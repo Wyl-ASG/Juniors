@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+session_start();
+?>
 <head>
 	<style>
 		/* Styling the body */
@@ -296,10 +298,16 @@
         <a href="rewards.php">Rewards</a>
         <a href="#">Contact</a>
         <?php
-        if(isset($_SESSION["name"]))
+        if(isset($_POST["username"]))
         {
-            $name = $_SESSION["name"];
-            echo$name;
+            $name = $_POST["username"];
+			$_SESSION['username'] = $_POST["username"];
+            echo"<a href=profile.php>Profile ({$name})</a>";
+        }
+		else if(isset($_SESSION["username"]))
+        {
+            $name = $_SESSION['username'];
+            echo"<a href=profile.php>Profile ({$name})</a>";
         }
         else{
             echo"<a href=login.php>Login</a>";

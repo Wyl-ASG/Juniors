@@ -106,16 +106,23 @@
         <h1></h1>
     </header>
     <nav>
-        <a href="tester.php">Home</a>
+        <a href="index.php">Home</a>
         <a href="#">About</a>
         <a href="rewards.php">Rewards</a>
         <a href="#">Contact</a>
         
         <?php
-        if(isset($_SESSION["name"]))
+        session_start();
+        if(isset($_POST["username"]))
         {
-            $name = $_SESSION["name"];
-            echo$name;
+            $name = $_POST["username"];
+			$_SESSION['username'] = $_POST["username"];
+            echo"<a href=profile.php>Profile ({$name})</a>";
+        }
+		else if(isset($_SESSION["username"]))
+        {
+            $name = $_SESSION['username'];
+            echo"<a href=profile.php>Profile ({$name})</a>";
         }
         else{
             echo"<a href=login.php>Login</a>";

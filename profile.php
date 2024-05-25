@@ -99,7 +99,12 @@
             <a href="index.php">&larr; Back to Homepage</a>
         </div>
 
-        <h1>session username<?$_SESSION['username']?></h1>
+        <h1>
+        <?php
+        session_start();
+        echo$_SESSION['username'];
+        ?>
+        </h1>
 
         <h2>
         <div class="profile-info">
