@@ -124,7 +124,7 @@ require_once "common.php";
         $user = new Org($_POST['username'],$_POST['name'],$_POST['contact_number'],$_POST['email'],$_POST['poc_name'],$_POST['poc_number'],$_POST['password'],$_POST['website'],$_POST['org_description'],'img');
         if($dao->registerOrg($user))
         {
-            $_SESSION["name"] = $user->getOrg_name();
+            $_SESSION["username"] = $user->getOrg_name();
             header("location:organization_home.php");
             exit;
         }

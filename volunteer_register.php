@@ -98,7 +98,7 @@ require_once "common.php";
 
         if($dao->registerUser($user))
         {
-            $_SESSION["name"] = $user->getUser();
+            $_SESSION["username"] = $user->getUser();
             header("location:index.php");
             exit;
         }
