@@ -1,6 +1,3 @@
-<?php
-require_once "common.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +73,7 @@ require_once "common.php";
   }
 
   .event-details h2 {
-    color: #333;
+    color: black;
     margin-top: 0;
   }
 
@@ -196,7 +193,7 @@ require_once "common.php";
 <body>
 <table border="1" class="table-event">
         <tr>
-            <td colspan="7" class="event-header"><h2>Event Details</h2></td>
+            <td colspan="9" class="event-header"><h2>Event Details</h2></td>
         </tr>
         <tr class="large-text" >
             <th style="color:black;">Date</th>
@@ -205,6 +202,8 @@ require_once "common.php";
             <th style="color:black;">Coordinator</th>
             <th style="color:black;">Phone</th>
             <th style="color:black;">Email</th>
+            <th style="color:black;">Slots Left</th>
+            <th style="color:black;">Friends Enrolled</th>
             <th style="color:black;">Sign Up</th>
         </tr>
         <tr>
@@ -214,7 +213,9 @@ require_once "common.php";
             <td>John Doe</td>
             <td>555-123-4567</td>
             <td>john.doe@example.com</td>
-            <td><input type="checkbox" name="opp[]" value="1"></td>
+            <td>7</td>
+            <td>Shao Yeap<br>Kyle</td>
+            <td><center><input type="checkbox" name="opp[]" value="1"></center></td>
         </tr>
         <tr>
             <td>July 20, 2024</td>
@@ -223,7 +224,9 @@ require_once "common.php";
             <td>Jane Smith</td>
             <td>555-987-6543</td>
             <td>jane.smith@example.com</td>
-            <td><input type="checkbox" name="opp[]" value="2"></td>
+            <td>30</td>
+            <td>N.A.</td>
+            <td><center><input type="checkbox" name="opp[]" value="2"></center></td>
         </tr>
     </table>
 
@@ -239,17 +242,10 @@ require_once "common.php";
 
         </table>
         
-        <h3>Slots left: 7</h3>
-        <!-- <span style="color: #949494"> -->
-        Your friend <b>Shao Yeap</b> and <b>Kyle</b> has signed up for this event!</span>
-
-        <h2>How to Volunteer:</h2>
-
-        <p>If you're interested in volunteering for this event, please fill out the form below:</p>
-        
-            <label for="message">Message (optional):</label><br>
+        <!-- <h2>Volunteer Now!</h2>         -->
+            <label for="message">Message (optional):</label>
             <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Sign Up">
         </form>
     </div>
 </body>
