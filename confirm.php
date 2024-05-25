@@ -6,17 +6,17 @@
     <title>Event Participation Confirmation</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+			padding: 0;
+
+    background: url(
+'Untitled design.jpg'
+				);
+                background-attachment: fixed;
+                background-size: cover;
         }
         .container {
-            width: 50%;
+
             background: #fff;
             padding: 30px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -60,9 +60,51 @@
         .confirmation-message {
             display: none;
         }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+        nav {
+            background-color: #666;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+<p>
+<header>
+        <h1></h1>
+    </header>
+    <nav>
+        <a href="tester.php">Home</a>
+        <a href="#">About</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="#">Contact</a>
+        
+        <?php
+        if(isset($_SESSION["name"]))
+        {
+            $name = $_SESSION["name"];
+            echo$name;
+        }
+        else{
+            echo"<a href=login.php>Login</a>";
+        }
+        ?>
+    </nav>
+    </p>
     <div class="container">
         <!-- Confirmation Section -->
         <div class="confirmation-section">
@@ -82,7 +124,7 @@
                 <p><strong>Location:</strong> Central Park, New York</p>
             </div>
             <p>If you have any questions, please contact us at <a href="mailto:info@example.com">info@example.com</a>.</p>
-            <button onclick="window.location.href='test.html'">Back to Home</button>
+            <button onclick="window.location.href='tester.php'">Back to Home</button>
         </div>
     </div>
 

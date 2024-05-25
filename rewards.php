@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Rewards</title>
     <style>
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+			padding: 0;
+
+    background: url(
+'Untitled design.jpg'
+				);
+                background-attachment: fixed;
+                background-size: cover;
         }
         .container {
             width: 100%;
@@ -119,9 +120,48 @@
             font-size: 20px;
             color: #333;
         }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #666;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <h1></h1>
+    </header>
+    <nav>
+        <a href="tester.php">Home</a>
+        <a href="#">About</a>
+        <a href="rewards.php">Rewards</a>
+        <a href="#">Contact</a>
+        
+        <?php
+        if(isset($_SESSION["name"]))
+        {
+            $name = $_SESSION["name"];
+            echo$name;
+        }
+        else{
+            echo"<a href=login.php>Login</a>";
+        }
+        ?>
+    </nav>
     <div class="container">
         <h1>Your Rewards</h1>
         <div class="balance">Initial Balance: <span id="initial-balance">1500</span> Points</div>

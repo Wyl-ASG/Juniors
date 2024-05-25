@@ -14,6 +14,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background: url(
+'Untitled design.jpg'
+				);
+                background-attachment: fixed;
+                background-size: cover;
         }
         .container {
             display: flex;
@@ -24,6 +29,7 @@
             border-radius: 10px;
             width: 90%;
             max-width: 1200px;
+
         }
         .login-section {
             width: 45%;
@@ -90,7 +96,7 @@
 <div class="container">
     <div class="login-section">
         <h1>Volunteer Login</h1>
-        <form action="volunteer_home.php" method="post">
+        <form action="tester.php" method="post">
             <label for="volunteer-username">Username:</label>
             <input type="text" id="volunteer-username" name="username" required>
 
@@ -100,7 +106,7 @@
             <button type="submit">Login</button>
         </form>
         <div class="register-link">
-            <p>Not a member? <a href="volunteer_register.html">Register</a></p>
+            <p>Not a member? <a href="volunteer_register.php">Register</a></p>
         </div>
     </div>
     <div class="login-section">
@@ -115,7 +121,7 @@
             <button type="submit">Login</button>
         </form>
         <div class="register-link">
-            <p>Not a member? <a href="organization_register.html">Register</a></p>
+            <p>Not a member? <a href="organization_register.php">Register</a></p>
         </div>
     </div>
 </div>

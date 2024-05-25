@@ -1,22 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteering Opportunities</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
+	<style>
+		/* Styling the body */
+		body {
+			margin: 0;
+			padding: 0;
+
+    background: url(
+'Untitled design.jpg'
+				);
+                background-attachment: fixed;
+                background-size: cover;
+		}
+
+		/* Styling section, giving background
+			image and dimensions */
+		section {
+			width: 100%;
+			height: 100vh;
+
+		}
+
+		/* Styling the left floating section */
+		section .leftBox {
+			width: 100%;
+
+			padding: 50px;
+			box-sizing: border-box;
+		}
+
+		/* Styling the background of 
+			left floating section */
+		section .leftBox .content {
+			color: #fff;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 40px;
+			transition: .5s;
+		}
+
+		/* Styling the hover effect 
+			of left floating section */
+		section .leftBox .content:hover {
+			background: #e91e63;
+		}
+
+		/* Styling the header of left 
+			floating section */
+		section .leftBox .content h1 {
+			margin: 0;
+			padding: 0;
+			font-size: 50px;
+			text-transform: uppercase;
+		}
+
+		/* Styling the paragraph of 
+			left floating section */
+		section .leftBox .content p {
+			margin: 10px 0 0;
+			padding: 0;
+		}
+
+		/* Styling the three events section */
+		section .events {
+			position: relative;
+
+			height: 80%;
+			background: rgba(0, 0, 0, 0.5);
+			box-sizing: border-box;
+		}
+
+		/* Styling the links of 
+		the events section */
+		section .events ul {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 0;
+			padding: 40px;
+			box-sizing: border-box;
+		}
+
+		/* Styling the lists of the event section */
+		section .events ul li {
+			list-style: none;
+			background: #fff;
+			box-sizing: border-box;
+			height: 200px;
+			margin: 15px 0;
+		}
+
+		/* Styling the time class of events section */
+		section .events ul li .time {
+			position: relative;
+			padding: 20px;
+			background: #262626;
+			box-sizing: border-box;
+			width: 30%;
+			height: 100%;
+			float: left;
+			text-align: center;
+			transition: .5s;
+		}
+
+		/* Styling the hover effect
+			of events section */
+		section .events ul li:hover .time {
+			background: #e91e63;
+		}
+
+		/* Styling the header of time 
+			class of events section */
+		section .events ul li .time h2 {
+			position: absolute;
+			margin: 0;
+			padding: 0;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: #fff;
+			font-size: 60px;
+			line-height: 30px;
+		}
+
+		/* Styling the texts of time 
+		class of events section */
+		section .events ul li .time h2 span {
+			font-size: 30px;
+		}
+
+		/* Styling the details 
+		class of events section */
+		section .events ul li .details {
+			padding: 20px;
+			background: #fff;
+			box-sizing: border-box;
+			width: 70%;
+			height: 100%;
+			float: left;
+		}
+
+		/* Styling the header of the 
+		details class of events section */
+		section .events ul li .details h3 {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			font-size: 22px;
+		}
+
+		/* Styling the lists of details 
+		class of events section */
+		section .events ul li .details p {
+			position: relative;
+			margin: 10px 0 0;
+			padding: 0;
+			font-size: 16px;
+		}
+
+		/* Styling the links of details
+		class of events section */
+		section .events ul li .details a {
+			display: inline-block;
+			text-decoration: none;
+			padding: 10px 15px;
+			border: 1.5px solid #262626;
+			margin-top: 8px;
+			font-size: 18px;
+			transition: .5s;
+		}
+
+		/* Styling the details class's hover effect */
+		section .events ul li .details a:hover {
+			background: #e91e63;
+			color: #fff;
+			border-color: #e91e63;
+		}
         nav {
             background-color: #666;
             padding: 10px 0;
@@ -49,82 +209,268 @@
             width: 100%;
             bottom: 0;
         }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Volunteering Opportunities</h1>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </nav>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 1400px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
-            color: #333;
         }
-        ul {
+        .center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:  500px;
+    height: 500px;
+    padding: 20px 0
+        }
+        .search-container {
+            position: relative;
+            width: 300px;
+            margin: 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .dropdown {
+            position: absolute;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1;
+        }
+
+        .dropdown li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown li:hover {
+            background: #f4f4f4;
+        }
+        .search-box {
+            margin: 20px;
+            padding: 10px;
+            width: 300px;
+        }
+
+        .events ul {
             list-style-type: none;
             padding: 0;
         }
-        li {
-            margin-bottom: 10px;
+
+        .events li {
             padding: 10px;
-            background-color: #f9f9f9;
+            background: #f4f4f4;
+            margin: 10px 0;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .bulletin-content {
-            font-size: 16px;
-            color: #333;
+        .event-title {
+            font-weight: bold;
+            font-size: 30px;
         }
-    </style>
-    <div class="container">
-        <div class="content">
-            <h2>Welcome to the volunteering website</h2>
-            <p>This is a simple HTML template to help you get started with your front-end development. Feel free to customize it further according to your needs.</p>
-        </div>
-    </div>
-    <div class="container">
+        .event-block {
+            padding: 10px;
+            background: #f4f4f4;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+	</style>
+</head>
+
+<body>
+
+<header>
+        <h1>Volunteering Opportunities</h1>
+    </header>
+    <nav>
+        <a href="tester.php">Home</a>
+        <a href="#">About</a>
+        <a href="rewards.php">Rewards</a>
+        <a href="#">Contact</a>
+        <?php
+        if(isset($_SESSION["name"]))
+        {
+            $name = $_SESSION["name"];
+            echo$name;
+        }
+        else{
+            echo"<a href=login.php>Login</a>";
+        }
+        ?>
+    </nav>
+	<section>
         
-        <h1>Bulletin Board</h1>
-        <ul>
-            <li>
-                <div class="bulletin-content">
-                    <h2>Important Announcement</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                    <p>Posted by: Admin | Date: May 25, 2024</p>
-                </div>
-            </li>
-            <li>
-                <div class="bulletin-content">
-                    <h2>Upcoming Event</h2>
-                    <p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
-                    <p>Posted by: Event Organizer | Date: May 26, 2024</p>
-                </div>
-            </li>
-            <!-- Add more bulletin items as needed -->
-        </ul>
-    </div>
-    <footer>
-        &copy; 2024 Your Website Name. All rights reserved.
-    </footer>
+		<div class="leftBox">
+			<div class="content">
+				<h1>
+					Volunteering organisation
+				</h1>
+				<p>
+					With the idea of imparting programming
+					knowledge, Mr. Sandeep Jain, an IIT
+					Roorkee alumnus started a dream,
+					GeeksforGeeks. Whether programming
+					excites you or you feel stifled,
+					wondering how to prepare for
+					interview questions or
+					how to ace data structures and
+					algorithms, GeeksforGeeks is a
+					one-stop solution. With every
+					tick of time, we are adding arrows
+					in our quiver. From articles on
+					various computer science subjects
+					to programming problems for practice,
+					from basic to premium courses, from
+					technologies to entrance examinations,
+					we have been building ample content
+					with superior quality. In a short
+					span, we have built a community of
+					1 Million+ Geeks around the world, 20,000+
+					Contributors and 500+ Campus Ambassadors
+					in various colleges across the nation.
+					Our success stories include a lot of
+					students who benefitted in their
+					placements and landed jobs at tech
+					giants. Our vision is to build a gigantic
+					network of geeks and we are only a
+					fraction of it yet.
+				</p>
+			</div>
+            
+
+            
+		</div>
+        <input type="text" id="searchBox" class="search-box" placeholder="Search events...">
+        
+        <div class="events" id="eventList">
+			<ul>
+				<li>
+					<div class="time">
+						<h2>
+							<img src=Unknown.jpeg width="100%" height="100%">
+						</h2>
+					</div>
+					<div class="details">
+                    <div class="event-title">
+							NKF
+                    </div>
+						<p>
+							With the idea of imparting programming
+							knowledge, Mr. Sandeep Jain, an IIT
+							Roorkee alumnus started a dream,
+							GeeksforGeeks. Whether programming
+							excites you or you feel stifled,
+							how to ace data structures and
+							algorithms, GeeksforGeeks is a
+							one-stop solution.
+						</p>
+						<a href="page_one.php">View Details</a>
+					</div>
+					<div style="clear: both;"></div>
+				</li>
+				<li>
+					<div class="time">
+						<h2>
+                        <img src=Unknown.jpeg width="100%" height="100%">
+						</h2>
+					</div>
+					<div class="details">
+                    <div class="event-title">
+							Charity
+                    </div>
+						<p>
+							With the idea of imparting programming
+							knowledge, Mr. Sandeep Jain, an IIT
+							Roorkee alumnus started a dream,
+							GeeksforGeeks. Whether programming
+							excites you or you feel stifled,
+							how to ace data structures and
+							algorithms, GeeksforGeeks is a
+							one-stop solution.
+						</p>
+						<a href="#">View Details</a>
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+				<li>
+					<div class="time">
+						<h2>
+                        <img src=Unknown.jpeg width="100%" height="100%">
+						</h2>
+					</div>
+					<div class="details">
+                    <div class="event-title">
+							Red Cross
+                    </div>  
+						<p>
+							With the idea of imparting programming
+							knowledge, Mr. Sandeep Jain, an IIT
+							Roorkee alumnus started a dream,
+							GeeksforGeeks. Whether programming
+							excites you or you feel stifled,
+							how to ace data structures and
+							algorithms, GeeksforGeeks is a
+							one-stop solution.
+						</p>
+						<a href="#">View Details</a>
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+                <li>
+					<div class="time">
+						<h2>
+                        <img src=Unknown.jpeg width="100%" height="100%">
+						</h2>
+					</div>
+					<div class="details">
+                    <div class="event-title">
+							SPCA
+                    </div>  
+						<p>
+							With the idea of imparting programming
+							knowledge, Mr. Sandeep Jain, an IIT
+							Roorkee alumnus started a dream,
+							GeeksforGeeks. Whether programming
+							excites you or you feel stifled,
+							how to ace data structures and
+							algorithms, GeeksforGeeks is a
+							one-stop solution.
+						</p>
+						<a href="#">View Details</a>
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+			</ul>
+		</div>
+
+<script>
+    // JavaScript to filter the event list
+    document.getElementById('searchBox').addEventListener('keyup', function() {
+        let filter = this.value.toUpperCase();
+        let ul = document.getElementById("eventList");
+        let li = ul.getElementsByTagName('li');
+
+        for (let i = 0; i < li.length; i++) {
+            let text = li[i].textContent || li[i].innerText;
+            if (text.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    });
+</script>
+		
+	</section>
+
 </body>
+
 </html>

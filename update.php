@@ -6,10 +6,15 @@
     <title>Update Organization Details</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+
+    background: url(
+'Untitled design.jpg'
+				);
+                background-attachment: fixed;
+                background-size: cover;
         }
         .container {
             max-width: 600px;
@@ -74,10 +79,49 @@
         .file-input input {
             display: none;
         }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+        nav {
+            background-color: #666;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-
+    <header>
+        <h1></h1>
+    </header>
+    <nav>
+        <a href="tester.php">Home</a>
+        <a href="#">About</a>
+        <a href="rewards.php">Rewards</a>
+        <a href="#">Contact</a>
+        
+        <?php
+        if(isset($_SESSION["name"]))
+        {
+            $name = $_SESSION["name"];
+            echo$name;
+        }
+        else{
+            echo"<a href=login.php>Login</a>";
+        }
+        ?>
+    </nav>
 <div class="container">
     <h1>Update Organization Details</h1>
     <form action="/update_organization" method="post" enctype="multipart/form-data">

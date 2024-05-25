@@ -6,10 +6,15 @@
     <title>Organizer Homepage</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+
+    background: url(
+'Untitled design.jpg'
+				);
+                background-attachment: fixed;
+                background-size: cover;
         }
         .container {
             max-width: 800px;
@@ -91,25 +96,23 @@
     <h1>Welcome <?= $_POST['username']?></h1>
 
     <div class="logo">
-        <img src="path_to_your_logo" alt="Organization Logo">
+        <img src='PA Logo 2015 (PNG).png' alt="Organization Logo">
     </div>
 
     <div class="details">
         <center>
-        <label for="org-name">Organization Name:</label>
-        <div id="org-name">Organization Name Value</div>
-        <br>
+
 
         <label for="org-username">Organization Username:</label>
-        <div id="org-username">Organization Username Value</div>
+        <div id="org-username">PA</div>
         <br>
 
         <label for="org-email">Email:</label>
-        <div id="org-email">Email Value</div>
+        <div id="org-email">pa.123@gmail.com</div>
         <br>
 
         <label for="org-desc">About Us:</label>
-        <div id="org-desc">Description</div>
+        <div id="org-desc"></div>
         </center>
         <!-- Add other details as needed -->
     </div>
@@ -136,6 +139,25 @@
             <p>Description: Event Description Value</p>
         </div>
     </div>
+    <?php
+    if(isset($_POST['create_event']))
+    {
+        echo "
+        <div class=event-box>
+        <h2>{$_POST['event_name']}</h2>
+        <div class=event-details>
+            <p>Event ID: {$_POST['event_id']}</p>
+            <p>Location: {$_POST['location']}</p>
+            <p>Date: {$_POST['date']}</p>
+            <p>Start Time: {$_POST['start_time']}</p>
+            <p>End Time: {$_POST['end_time']}</p>
+            <p>Capacity: {$_POST['capacity']}</p>
+            <p>Description: {$_POST['description']}</p>
+        </div>
+    </div>
+        ";
+    }
+    ?>
     <!-- End of Active Events Section -->
 
     <h2>Past Events</h2>

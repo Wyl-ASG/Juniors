@@ -9,8 +9,14 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-        }
+
+    background: url(
+'Untitled design.jpg'
+				);
+                background-attachment: fixed;
+                background-size: cover;
+		}
+
         header {
             background-color: #333;
             color: #fff;
@@ -31,7 +37,7 @@
             text-decoration: underline;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -49,38 +55,124 @@
             width: 100%;
             bottom: 0;
         }
+        .center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:  500px;
+    height: 500px;
+        }
+        .event-details {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    min-width: 600px;
+    margin: 0 auto;
+  }
+
+  .event-details h2 {
+    color: #333;
+    margin-top: 0;
+  }
+
+  .event-details p {
+    margin: 10px 0;
+  }
+
+  .contact-info {
+    margin-top: 20px;
+  }
+
+  .contact-info p {
+    margin-bottom: 5px;
+  }
+
+  .contact-info p span {
+    font-weight: bold;
+  }
+  .table-event
+  {
+    min-width: 700px;
+    text-align: center
+  }
+  .large-text {
+    font-size: 20px;
+    
+}
     </style>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<form action="confirm.php" method="post">
 <header>
-        <h1>V(the organisation)</h1>
+        <h1>NKF</h1>
     </header>
     <nav>
-        <a href="#">Home</a>
+        <a href="tester.php">Home</a>
         <a href="#">About</a>
-        <a href="#">Services</a>
+        <a href="rewards.html">Rewards</a>
         <a href="#">Contact</a>
+        
+        <?php
+        if(isset($_SESSION["name"]))
+        {
+            $name = $_SESSION["name"];
+            echo$name;
+        }
+        else{
+            echo"<a href=login.php>Login</a>";
+        }
+        ?>
     </nav>
     <div class="container">
-        <h1>Volunteer Opportunity: Help Clean the Local Park</h1>
+        <h1>Volunteer Opportunities</h1>
         <p>We are organizing a community cleanup event at the local park and we need volunteers to help with various tasks including picking up trash, planting trees, and maintaining garden beds. This is a great opportunity to give back to the community and make our park a better place for everyone.</p>
-        <h2>Event Details:</h2>
-        <ul>
-            <li><strong>Date:</strong> June 15, 2024</li>
-            <li><strong>Time:</strong> 9:00 AM - 12:00 PM</li>
-            <li><strong>Location:</strong> Central Park, Main Entrance</li>
-            <li><strong>Contact:</strong> John Doe (volunteer coordinator) - email: john.doe@example.com, phone: 555-123-4567</li>
-        </ul>
+        <table>
+            <tr>
+                <td>
+                <div class="event-details">
+  
+  <table border=1 class="table-event" >
+    <tr>
+        <td colspan="7"><h1>Event Details</h1></td>
+    </tr>
+    <tr class="large-text">
+        <th>Date</th>
+        <th>Time</th>
+        <th>Location</th>
+        <th>coordinator</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Sign up</th>
+    </tr>
+    <tr>
+        <th>June 15, 2024</th>
+        <th>9:00 AM - 12:00 PM</th>
+        <th>Central Park, Main Entrance</th>
+        <th>John Doe</th>
+        <th>555-123-4567</th>
+        <th>john.doe@example.com</th>
+        <th><input type="checkbox" name=opp[] value = 1></th>
+    </tr>
+
+  </table>
+
+  </div>
+</div>
+
+                </td>
+                <td>
+                    <img src="Unknown.jpeg" class = "center">
+                </td>
+
+            </tr>
+
+        </table>
+        
         <h2>How to Volunteer:</h2>
         <p>If you're interested in volunteering for this event, please fill out the form below:</p>
-        <form action="volunteer_submission.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone" required><br>
+        
             <label for="message">Message (optional):</label><br>
             <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
             <input type="submit" value="Submit">
