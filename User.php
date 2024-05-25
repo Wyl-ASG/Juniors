@@ -4,20 +4,20 @@ class User {
     private $user_name;
     private $email;
     private $phone_number;
-    private $address;
 
     private $user_pass;
-
     private $location;
 
-    public function __construct($user_id, $user_name,$email, $phone_number, $address,$user_pass,$location){
+    private $hours;
+
+    public function __construct($user_id, $user_name,$email, $phone_number,$user_pass,$location,$hours){
         $this->user_id = $user_id;
         $this->user_name = $user_name;
         $this->email = $email;
         $this->$phone_number;
-        $this->$address;
         $this->$user_pass;
         $this->$location;
+        $this->$hours;
 
     }
     public function getUser(){
