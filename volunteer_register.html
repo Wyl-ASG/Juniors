@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Registration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 50%;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, button {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Volunteer Registration</h1>
+    <form action="/volunteer_register" method="post">
+        <label for="volunteer-name">Full Name:</label>
+        <input type="text" id="volunteer-name" name="name" required>
+
+        <label for="volunteer-email">Email:</label>
+        <input type="email" id="volunteer-email" name="email" required>
+
+        <label for="volunteer-password">Password:</label>
+        <input type="password" id="volunteer-password" name="password" required>
+
+        <label for="volunteer-confirm-password">Confirm Password:</label>
+        <input type="password" id="volunteer-confirm-password" name="confirm_password" required>
+
+        <label for="volunteer-phone">Phone Number:</label>
+        <input type="tel" id="volunteer-phone" name="phone" required>
+
+        <label for="volunteer-address">Address:</label>
+        <input type="text" id="volunteer-address" name="address" required>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+</body>
+</html>
