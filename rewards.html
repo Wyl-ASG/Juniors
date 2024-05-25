@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Rewards</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .balance {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .cart {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .cart-button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .cart-button:hover {
+            background: #0056b3;
+        }
+        .items, .cart-items, .thank-you {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .item, .cart-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+        }
+        .item img, .cart-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .item h2, .cart-item h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .item p, .cart-item p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .item button, .cart-item button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .item button:hover, .cart-item button:hover {
+            background: #0056b3;
+        }
+        .prompt {
+            font-size: 18px;
+            color: red;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+
+        .thank-you h2 {
+            width: 100%;
+            font-size: 24px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .thank-you .summary {
+            width: 100%;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Rewards</h1>
+        <div class="balance">Initial Balance: <span id="initial-balance">1500</span> Points</div>
+        <div class="balance">Current Balance: <span id="balance">1500</span> Points</div>
+        <div class="cart">Cart: <span id="cart-count">0</span> items</div>
+        <button class="cart-button" onclick="viewCart()">View Cart</button>
+        <div class="items">
+            <div class="item">
+                <img src="item1.jpg" alt="Item 1">
+                <h2>Item 1</h2>
+                <p>Price: 300 Points</p>
+                <button onclick="addToCart('Item 1', 300)">Redeem</button>
+            </div>
+            <div class="item">
+                <img src="item2.jpg" alt="Item 2">
+                <h2>Item 2</h2>
+                <p>Price: 450 Points</p>
+                <button onclick="addToCart('Item 2', 450)">Redeem</button>
+            </div>
+            <div class="item">
+                <img src="item3.jpg" alt="Item 3">
+                <h2>Item 3</h2>
+                <p>Price: 500 Points</p>
+                <button onclick="addToCart('Item 3', 500)">Redeem</button>
+            </div>
+            <div class="item">
+                <img src="item4.jpg" alt="Item 4">
+                <h2>Item 4</h2>
+                <p>Price: 600 Points</p>
+                <button onclick="addToCart('Item 4', 600)">Redeem</button>
+            </div>
+            <div class="item">
+                <img src="item5.jpg" alt="Item 5">
+                <h2>Item 5</h2>
+                <p>Price: 750 Points</p>
+                <button onclick="addToCart('Item 5', 750)">Redeem</button>
+            </div>
+            <div class="item">
+                <img src="item6.jpg" alt="Item 6">
+                <h2>Item 6</h2>
+                <p>Price: 1000 Points</p>
+                <button onclick="addToCart('Item 6', 1000)">Redeem</button>
+            </div>
+        </div>
+        <div class="cart-items hidden">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="thank-you hidden">
+            <h2>Thank You for Your Redemption!</h2>
+            <div class="summary">
+                <!-- Summary of redeemed items will be dynamically inserted here -->
+            </div>
+        </div>
+        <button class="cart-button hidden" onclick="backToRewards()">Back to Rewards</button>
+        <button class="cart-button hidden" onclick="confirmCart()">Confirm Cart</button>
+        <div class="prompt" id="prompt"></div>
+    </div>
+
+    <script>
+        let initialBalance = 1500;
+        let balance = initialBalance;
+        let cartCount = 0;
+        let cart = [];
+
+        function addToCart(itemName, price) {
+            const prompt = document.getElementById('prompt');
+            if (balance >= price) {
+                balance -= price;
+                cartCount++;
+                cart.push({ name: itemName, price: price });
+                document.getElementById('balance').textContent = balance;
+                document.getElementById('cart-count').textContent = cartCount;
+                prompt.textContent = '';
+            } else {
+                prompt.textContent = 'Insufficient balance to redeem this item.';
+            }
+        }
+
+        function viewCart() {
+            document.querySelector('.items').classList.add('hidden');
+            document.querySelector('.cart-items').classList.remove('hidden');
+            document.querySelector('.thank-you').classList.add('hidden');
+            document.querySelector('.cart-button[onclick="viewCart()"]').classList.add('hidden');
+            document.querySelector('.cart-button[onclick="backToRewards()"]').classList.remove('hidden');
+            document.querySelector('.cart-button[onclick="confirmCart()"]').classList.remove('hidden');
+            renderCartItems();
+        }
+
+        function backToRewards() {
+            document.querySelector('.items').classList.remove('hidden');
+            document.querySelector('.cart-items').classList.add('hidden');
+            document.querySelector('.thank-you').classList.add('hidden');
+            document.querySelector('.cart-button[onclick="viewCart()"]').classList.remove('hidden');
+            document.querySelector('.cart-button[onclick="backToRewards()"]').classList.add('hidden');
+            document.querySelector('.cart-button[onclick="confirmCart()"]').classList.add('hidden');
+        }
+
+        function renderCartItems() {
+            const cartItemsContainer = document.querySelector('.cart-items');
+            cartItemsContainer.innerHTML = '';
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <h2>${item.name}</h2>
+                    <p>Price: ${item.price} Points</p>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
+
+        function removeFromCart(index) {
+            const item = cart[index];
+            balance += item.price;
+            cartCount--;
+            cart.splice(index, 1);
+            document.getElementById('balance').textContent = balance;
+            document.getElementById('cart-count').textContent = cartCount;
+            renderCartItems();
+        }
+
+        function confirmCart() {
+            document.querySelector('.cart-items').classList.add('hidden');
+            document.querySelector('.thank-you').classList.remove('hidden');
+            document.querySelector('.cart-button[onclick="backToRewards()"]').classList.add('hidden');
+            document.querySelector('.cart-button[onclick="confirmCart()"]').classList.add('hidden');
+            displaySummary();
+        }
+
+        function displaySummary() {
+            const summaryContainer = document.querySelector('.thank-you .summary');
+            summaryContainer.innerHTML = '';
+            const totalSpent = initialBalance - balance;
+            summaryContainer.innerHTML = `
+                <p>Initial Balance: ${initialBalance} Points</p>
+                <p>Total Spent: ${totalSpent} Points</p>
+                <p>Final Balance: ${balance} Points</p>
+                <p>Items Redeemed:</p>
+            `;
+            cart.forEach(item => {
+                summaryContainer.innerHTML += `<p>${item.name} - ${item.price} Points</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
