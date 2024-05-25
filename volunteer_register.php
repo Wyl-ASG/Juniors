@@ -1,6 +1,3 @@
-<?php
-require_once "common.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,26 +86,6 @@ require_once "common.php";
     </style>
 </head>
 <body>
-    <?php
-    $error = '';
-    if(isset($_POST['submit']))
-    {
-        $dao = new UserDAO();
-        $user = new User($_POST['id'],$_POST['name'],$_POST['email'],$_POST['phone'],$_POST['password'],$_POST['address'],0);
-        var_dump($user);
-        if($dao->registerUser($user))
-        {
-            $_SESSION["name"] = $user->getUser();
-            header("location:index.php");
-            exit;
-        }
-        else{
-            $error= "failed, please try again";
-        }
-
-        
-    }
-    ?>
     <header>
         <h1></h1>
     </header>
@@ -130,12 +107,8 @@ require_once "common.php";
         ?>
     </nav>
 <div class="container">
-    <h1><?php echo$error ?></h1>
     <h1>Volunteer Registration</h1>
-    <form action="volunteer_register.php" method="post">
-        <label for="volunteer-nric">NRIC:</label>
-        <input type="text" id="volunteer-nirc" name="id" required>
-
+    <form action="/volunteer_register" method="post">
         <label for="volunteer-name">Full Name:</label>
         <input type="text" id="volunteer-name" name="name" required>
 
@@ -153,8 +126,8 @@ require_once "common.php";
 
         <label for="volunteer-address">Address:</label>
         <input type="text" id="volunteer-address" name="address" required>
-    
-        <button type="submit" name= submit>Register</button>
+
+        <button type="submit">Register</button>
     </form>
 </div>
 
