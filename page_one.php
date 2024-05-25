@@ -155,7 +155,7 @@
         <h1>NKF</h1>
     </header>
     <nav>
-        <a href="tester.php">Home</a>
+        <a href="index.php">Home</a>
         <a href="#">About</a>
         <a href="rewards.html">Rewards</a>
         <a href="#">Contact</a>
