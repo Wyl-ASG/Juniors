@@ -1,3 +1,6 @@
+<?php
+require_once "common.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,26 +116,30 @@
         <a href="rewards.php">Rewards</a>
         <a href="#">Contact</a>
         
-        <?php
-        if(isset($_POST["username"]))
+    <?php
+    $error = '';
+    if(isset($_POST['submit']))
+    {
+        $dao = new OrgDao();
+        $user = new Org($_POST['username'],$_POST['name'],$_POST['contact_number'],$_POST['email'],$_POST['poc_name'],$_POST['poc_number'],$_POST['password'],$_POST['website'],$_POST['org_description'],'img');
+        if($dao->registerOrg($user))
         {
-            $name = $_POST["username"];
-			$_SESSION['username'] = $_POST["username"];
-            echo"<a href=profile.php>Profile ({$name})</a>";
-        }
-		else if(isset($_SESSION["username"]))
-        {
-            $name = $_SESSION['username'];
-            echo"<a href=profile.php>Profile ({$name})</a>";
+            $_SESSION["name"] = $user->getOrg_name();
+            header("location:organization_home.php");
+            exit;
         }
         else{
-            echo"<a href=login.php>Login</a>";
+            $error= "failed, please try again";
         }
-        ?>
+
+        
+    }
+    ?>
     </nav>
 <div class="container">
+    <h1><?php echo$error ?></h1>
     <h1>Organization Registration</h1>
-    <form action="/organization_register" method="post" enctype="multipart/form-data">
+    <form action="organization_register.php" method="post" enctype="multipart/form-data">
         <label for="org-name">Organization Name:</label>
         <input type="text" id="org-name" name="name" required>
 
@@ -171,7 +178,7 @@
             <input type="file" id="org-logo" name="logo" accept="image/*" required>
         </div>
 
-        <button type="submit">Register</button>
+        <button name=submit type="submit">Register</button>
     </form>
 </div>
 
