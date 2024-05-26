@@ -310,18 +310,21 @@ session_start();
         {
             $name = $_POST["username"];
 			$_SESSION['username'] = $_POST["username"];
-            echo"<a href=profile.php>Profile ({$name})</a>";
+            echo"<a href=profile.php>Profile ({$name})</a>
+			<a href=index.php?test=1>Logout</a>";
         }
 		else if(isset($_SESSION["username"]))
         {
             $name = $_SESSION['username'];
-            echo"<a href=profile.php>Profile ({$name})</a>";
+            echo"<a href=profile.php>Profile ({$name})</a>
+			<a href=index.php?test=1>Logout</a>";
+
         }
         else{
             echo"<a href=login.php>Login</a>";
         }
         ?>
-		<a href="index.php?test=1">Logout</a>
+		
     </nav>
 	<section>
         
